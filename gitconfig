@@ -1,0 +1,156 @@
+[user]
+	name = Luis Cardoso
+	email = 61982523+LuisCardosoOliveira@users.noreply.github.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	precomposeUnicode = true
+
+[alias]
+	c = commit -am
+	fpush = push --force
+	s = status
+	sclone = clone --depth=1
+	amend = commit --amend --all --no-edit
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	unstage = reset --soft HEAD
+	co = checkout
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	cherry = cherry-pick
+	cp = cherry-pick
+	diffbranch = !"git diff $(git merge-base HEAD origin/master)"
+	# show commit log of unique commits of this branch (not on master)
+	diffcommitsfrommaster = log --no-merges master..
+	# show unified diff of unique commits of this branch
+	difffrommaster = diff master...
+	# ^^^^ Holy crap two dots vs three dots, so important. https://stackoverflow.com/a/48681527
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+	# List aliases.
+	aliases = config --get-regexp alias
+	contributors = shortlog --summary --numbered
+	git = !exec git
+
+[branch]
+	# Show most recently changed branches first.
+	sort = -committerdate
+
+[pager]
+	# or not... # insanely beautiful diffs ==> npm install -g diff-so-fancy
+	# https://github.com/dandavison/delta
+	diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+
+[delta]
+	max-line-length = 700
+	max-line-distance = 0.3 # better word-diff?
+	features = decorations
+	line-numbers = true
+	side-by-side = true
+    # plus-style = "#012800"
+    # minus-style = "#340001"
+    # zero-style = "#999999"
+    syntax-theme = base16
+    # hyperlinks = true # broken? https://github.com/dandavison/delta/issues/362
+    # navigate = true # eh. not great with short diffs.
+    file-decoration-style = yellow ol ul
+    file-style = bold yellow ul
+    hunk-header-decoration-style = blue
+    hunk-header-line-number-style = purple bold
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[interactive]
+	# diffFilter = delta --color-only
+  	# disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
+	# diffFilter = "diff-so-fancy"
+    diffFilter = delta --color-only --features=interactive
+
+# so much color
+[color]
+	ui = auto
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+	newMoved = cyan dim
+	oldMoved = blue dim
+	newMovedAlternative = cyan italic
+	oldMovedAlternative = blue italic
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[merge]
+	tool = opendiff
+	renameLimit = 0
+
+# correct typos
+[help]
+	autocorrect = 1
+
+[branch]
+  autosetuprebase = always
+
+# push easily. http://stackoverflow.com/a/23918418/89484
+[push]
+	default = current
+	followTags = true
+
+[pull]
+	ff = only
+	default = current
+ 	rebase = true
+
+[checkout]
+	defaultRemote = origin
+
+[diff]
+    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
+    # https://blog.github.com/2018-04-05-git-217-released/
+    colorMoved = zebra
+	renames = copies
+
+[stash]
+	showPatch = true
+
+[log]
+	date = relative
+	
