@@ -25,3 +25,4 @@
 - update-mac
 - md = Create a new directory and enter it
 - whois = whois a domain or a URL
+- ff <thing> = search a folder
