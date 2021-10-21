@@ -23,6 +23,6 @@
 - net = check if internet is working
 - ram <software> = check how much ram it consumes
 - update-mac
-- md = Create a new directory and enter it
+- mg = Create a new directory and enter it
 - whois = whois a domain or a URL
 - ff <thing> = search a folder
