@@ -26,3 +26,8 @@
 - mg = Create a new directory and enter it
 - whois = whois a domain or a URL
 - ff <thing> = search a folder
+
+# VSCode Shortcuts
+  
+## Move between tabs:
+  - Control + Tab (move to the right) or Control + Shift + Tab (move to the left)
