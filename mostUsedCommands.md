@@ -50,6 +50,7 @@
   - CMD + 1,2,3.etc = split editor
   - CMD + L = select the current line where cursor is
   - Option + Click = Multi cursor selection
+  - Control + R in the terminal = search for previous commands
 
   
   
