@@ -42,6 +42,7 @@
   - Option + arrow right/left = move cursor to the end/begin of the word
   - Option + Shitft + Down = duplicates line
   - Shit + arrow up = Expand selection
+  - Control + Shift + arrow-right = select all elements within the scope
   
   
   ## General shortcuts: 
