@@ -53,5 +53,11 @@
   - Option + Click = Multi cursor selection
   - Control + R in the terminal = search for previous commands
 
-  
+  ## Terminal shortcuts:
+  - https://betterprogramming.pub/master-mac-linux-terminal-shortcuts-like-a-ninja-7a36f32752a6
+  - Control + A = move cursor to the beggining of the line
+  - Control + E = move cursor to the end of the line
+  - Option + leftArrow = move cursor back forwards word
+  - Option + rightArrow = move cursor forwards word
+  - Control + R = search in the history
   
