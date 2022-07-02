@@ -9,6 +9,8 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	precomposeUnicode = true
+	hideDotFiles = true
+	untrackedCache = true
 
 [alias]
 	c = commit -am
@@ -43,19 +45,15 @@
 	aliases = config --get-regexp alias
 	contributors = shortlog --summary --numbered
 	git = !exec git
+	f = push --force-with-lease
 
-[branch]
-	# Show most recently changed branches first.
-	sort = -committerdate
 
 [pager]
-	# or not... # insanely beautiful diffs ==> npm install -g diff-so-fancy
 	# https://github.com/dandavison/delta
 	diff = delta
     log = delta
     reflog = delta
     show = delta
-
 
 [delta]
 	max-line-length = 700
@@ -119,7 +117,7 @@
 	untracked = cyan
 
 [merge]
-	tool = opendiff
+	tool = nvim -d
 	renameLimit = 0
 
 # correct typos
@@ -127,7 +125,9 @@
 	autocorrect = 1
 
 [branch]
-  autosetuprebase = always
+	# Show most recently changed branches first.
+	sort = -committerdate
+	autoSetupRebase = always
 
 # push easily. http://stackoverflow.com/a/23918418/89484
 [push]
@@ -141,16 +141,55 @@
 
 [checkout]
 	defaultRemote = origin
+	workers = -1
+	thresholdForParallelism = 50
 
 [diff]
     # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
     # https://blog.github.com/2018-04-05-git-217-released/
     colorMoved = zebra
 	renames = copies
+	algorithm = histogram
 
 [stash]
 	showPatch = true
 
 [log]
 	date = relative
-	
+	abbrevCommit = true
+
+[fetch]
+	recurseSubmodules = true
+	parallel = 0
+	prune = true
+	output = compact
+
+[feature]
+	experimental = true
+	manyFiles = true
+
+[index]
+	version = 4
+	recordEndOfIndexEntries = true
+	recordOffsetTable = true
+	threads = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	abbreviateCommands = true
+
+[rerere]
+	enabled = true
+	autoUpdate = true
+
+[status]
+	short = true
+	branch = true
+	renames = copies
+	showUntrackedFiles = all
+	submoduleSummary = true
+
+[submodule]
+	recurse = true
+	fetchJobs = 0

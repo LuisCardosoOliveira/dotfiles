@@ -95,10 +95,6 @@ function whois() {
 		domain=$1
 	fi
 	echo "Getting whois record for: $domain …"
-
-	# avoid recursion
-					# this is the best whois server
-													# strip extra fluff
 	/usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
 }
 
