@@ -1,195 +1,53 @@
-[user]
-	name = Luis Cardoso
-	email = 61982523+LuisCardosoOliveira@users.noreply.github.com
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
 
-[init]
-	defaultBranch = main
+# VSCode
+.vscode/
 
-[core]
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-	precomposeUnicode = true
-	hideDotFiles = true
-	untrackedCache = true
+# npm
+npm-debug.log
 
-[alias]
-	c = commit -am
-	fpush = push --force
-	s = status
-	sclone = clone --depth=1
-	amend = commit --amend --all --no-edit
-	undocommit = reset HEAD~
-	hreset = reset --hard
-	unstage = reset --soft HEAD
-	co = checkout
-	df = diff --color --color-words --abbrev
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	# View abbreviated SHA, description, and history graph of the latest 20 commits.
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	cherry = cherry-pick
-	cp = cherry-pick
-	diffbranch = !"git diff $(git merge-base HEAD origin/master)"
-	# show commit log of unique commits of this branch (not on master)
-	diffcommitsfrommaster = log --no-merges master..
-	# show unified diff of unique commits of this branch
-	difffrommaster = diff master...
-	# ^^^^ Holy crap two dots vs three dots, so important. https://stackoverflow.com/a/48681527
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch --all
-	remotes = remote --verbose
-	# List aliases.
-	aliases = config --get-regexp alias
-	contributors = shortlog --summary --numbered
-	git = !exec git
-	f = push --force-with-lease
+# yarn
+yarn-error.log
 
+# VIM
+*.un~
+Session.vim
+.netrwhist
+*~
+*.swp
+.lvimrc
 
-[pager]
-	# https://github.com/dandavison/delta
-	diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+# Over-arching stuff
+*.ignored/
+*.ignored.*
 
-[delta]
-	max-line-length = 700
-	max-line-distance = 0.3 # better word-diff?
-	features = decorations
-	line-numbers = true
-	side-by-side = true
-    # plus-style = "#012800"
-    # minus-style = "#340001"
-    # zero-style = "#999999"
-    syntax-theme = base16
-    # hyperlinks = true # broken? https://github.com/dandavison/delta/issues/362
-    # navigate = true # eh. not great with short diffs.
-    file-decoration-style = yellow ol ul
-    file-style = bold yellow ul
-    hunk-header-decoration-style = blue
-    hunk-header-line-number-style = purple bold
+# git
+*.patch
 
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+# eslint
+.eslintcache
 
-[interactive]
-	# diffFilter = delta --color-only
-  	# disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
-	# diffFilter = "diff-so-fancy"
-    diffFilter = delta --color-only --features=interactive
+# Icon must end with two \r
+Icon
 
-# so much color
-[color]
-	ui = auto
-[color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+# Thumbnails
+._*
 
-	newMoved = cyan dim
-	oldMoved = blue dim
-	newMovedAlternative = cyan italic
-	oldMovedAlternative = blue italic
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-[merge]
-	tool = nvim -d
-	renameLimit = 0
-
-# correct typos
-[help]
-	autocorrect = 1
-
-[branch]
-	# Show most recently changed branches first.
-	sort = -committerdate
-	autoSetupRebase = always
-
-# push easily. http://stackoverflow.com/a/23918418/89484
-[push]
-	default = current
-	followTags = true
-
-[pull]
-	ff = only
-	default = current
- 	rebase = true
-
-[checkout]
-	defaultRemote = origin
-	workers = -1
-	thresholdForParallelism = 50
-
-[diff]
-    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
-    # https://blog.github.com/2018-04-05-git-217-released/
-    colorMoved = zebra
-	renames = copies
-	algorithm = histogram
-
-[stash]
-	showPatch = true
-
-[log]
-	date = relative
-	abbrevCommit = true
-
-[fetch]
-	recurseSubmodules = true
-	parallel = 0
-	prune = true
-	output = compact
-
-[feature]
-	experimental = true
-	manyFiles = true
-
-[index]
-	version = 4
-	recordEndOfIndexEntries = true
-	recordOffsetTable = true
-	threads = true
-
-[rebase]
-	autoSquash = true
-	autoStash = true
-	abbreviateCommands = true
-
-[rerere]
-	enabled = true
-	autoUpdate = true
-
-[status]
-	short = true
-	branch = true
-	renames = copies
-	showUntrackedFiles = all
-	submoduleSummary = true
-
-[submodule]
-	recurse = true
-	fetchJobs = 0
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
